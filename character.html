@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            padding:10px;
+        }
+        #container{
+            width: 60vw;
+            
+            max-width: 700px;
+            
+            display: flex;
+            flex-direction: column;
+            
+            border: 2px solid red ;
+        }
+        #image{
+            width: 60vw;
+            height: 40vh;
+            max-width: 700px;
+            border: 1px solid red;
+        }
+        #image img{
+            width: 60vw;
+            object-fit:cover;
+        }
+        #name{
+            font-size: 2.5em;
+            color :red
+        }
+        h2{
+            text-align: center;
+            margin-bottom: 10px;
+            color:blue;
+            font-size: 2em;
+        }
+        p{
+            color: brown;
+            margin:0 5px;
+        }
+        ul{
+           
+        }
+
+        li{
+            list-style-type: none;
+            border: 1px solid green;
+            padding: 5px 10px;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="image" >
+
+            <img src="" alt="" id = "image">
+        </div>
+        <div class="about">
+            <h2 id = "name">character name</h2>
+            <p id="desc">description </p>
+            <div class="comics">
+                <h2>comics</h2>
+                <ul id ="comics"></ul>
+            </div>
+            <div class="events">
+                <h2>events</h2>
+                <ul id ="events"></ul>
+            </div>
+            <div class="series">
+                <h2>series</h2>
+                <ul id ="series"></ul>
+            </div>
+            <div class="stories">
+                <h2>stories</h2>
+                <ul id ="stories"></ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="character.js"></script>
+    
+</html>
