@@ -4,7 +4,7 @@ console.log(imageElement)
 var apikey= "3fac9c4542f5862f3d03f2f2eeaa889d";
 var privateKey ="6d868d05aec6c88c95814518acad060827d78516";
 var hashedValue = "dbd3fb9a458864dde50984bed11d004e";
-var baseUri = "http://gateway.marvel.com/v1/public/characters";
+var baseUri = "https://gateway.marvel.com/v1/public/characters";
 var urlParams = new URLSearchParams(window.location.search);
 var characterId = urlParams.get('id');
 var charnameElement = document.getElementById("name");
