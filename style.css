@@ -6,7 +6,7 @@
 
 body{
     width: 100vw;
-    background-color: aquamarine;
+    background: linear-gradient(aquamarine,rgb(25, 25, 67));
 
 }
 
@@ -55,8 +55,12 @@ cursor: pointer;
 border: 1px solid blue;
 padding: 10px 20px;
 border-radius: 10px;
-
-
+background-color:rgba(244, 246, 247, 0.5);
+color:rgb(87, 81, 199)
+}
+.searcheditem a{
+    text-decoration: none;
+    font-weight: 600;
 }
 .content{
     margin-top: 100px;
@@ -74,29 +78,37 @@ border-radius: 10px;
     min-height: 300px;
     max-height: 500px;
     height: 30vw;
-    background-color: aliceblue;
+    background:linear-gradient(to left,rgb(131, 246, 225),rgb(208, 208, 232));
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
+    border: 2px solid rgb(3, 3, 40);
 }
 .heroimg{
     width: 100%;
     height: 70%;
     border:1px solid royalblue;
-    ;
+    
+}
+.herocontainer a{
+    text-decoration:none;
+    
+
 }
 .herocontainer h4{
     text-align: center;
+    color:rgb(4, 4, 137);
+    font-size: 1.25rem;
 }
+
 .herocontainer p{
     position: relative;
     line-height: 1em;
-    
     text-overflow: ellipsis;
-    
+    color: blue;
     padding: 0 10px;
     overflow:hidden;
-    height: calc(1em *3);;
+    height: calc(1rem *2);;
 }
 .favorite{
     position: absolute;
@@ -105,4 +117,12 @@ border-radius: 10px;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+.favorite button{
+    background-color: rgb(33, 40, 238);
+    color:wheat;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }

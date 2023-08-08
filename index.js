@@ -20,6 +20,7 @@ var url = `http://gateway.marvel.com/v1/public/characters?limit=12&ts=3&apikey=$
 function addToFavorite(id){
     // event.preventDefault();
     console.log("in add to fav");
+    id= parseInt(id);
     let heroes = localStorage.getItem("fav");
     let favheroes=JSON.parse(heroes);
     if(favheroes==null)
@@ -41,7 +42,8 @@ function checkForfav(id){
     return false;
 }
 function removeToFav(id){
-    
+
+    console.log("in remove from fav");
     let heroes = localStorage.getItem("fav");
     let favheroes = JSON.parse(heroes);
         favheroes=favheroes.filter((ele)=>{return ele!=id});
@@ -51,11 +53,13 @@ function removeToFav(id){
 
 function handler(event){
     console.log(event);
-    // if(event.firstchild.data=="add to favorite")
-    // addToFavorite(id);
-    // else
-    // removeToFav(id);
+    if(event.target.firstChild.data =="add to favorite")
+    addToFavorite(event.target.attributes[0].nodeValue);
+    else
+    removeToFav(event.target.attributes[0].nodeValue);
 }
+
+
 var get =async function  (){
     fetch(url)
     .then(function(res){
@@ -65,12 +69,14 @@ var get =async function  (){
         var results = data.data.results;
         var htmlElements="";
         results.forEach(res => {
-           htmlElements += ` <div class="herocontainer" ><a href='./character.html?id=${res.id}'>
-           <img class="heroimg" src=${res.thumbnail.path+"."+res.thumbnail.extension} alt=""></a>
+           htmlElements += ` <div class="herocontainer" >
+           <a href='./character.html?id=${res.id}'>
+           <img class="heroimg" src=${res.thumbnail.path+"."+res.thumbnail.extension} alt="">
            <h4>${res.name}</h4>
            <p> ${res.description==""?"no description found!":res.description}</p>
+           </a>
           <div class="favorite">
-           <button onclick="handler(event)">${checkForfav(res.id)?'remove from favorite':'add to favorite'}</button>
+           <button heroId=${res.id} onclick="handler(event)">${checkForfav(res.id)?'remove from favorite':'add to favorite'}</button>
            </div>
        </div>
        
@@ -92,7 +98,7 @@ var srcResultlist= "";
 
 var suggestion = function(event){
     clearInterval(timer);
-     timer = setInterval(()=>{
+     timer = setTimeout(()=>{
         
         
         srcResultlist="";
@@ -103,16 +109,25 @@ var suggestion = function(event){
                 results.forEach((ele,index)=>{
                     console.log(ele.name,index);
                     if(index<10)
-                    srcResultlist+=`<div class="searcheditem">${ele.name}</div>`
+                    srcResultlist+=`<div class="searcheditem"><a href="./character.html?id=${ele.id}">${ele.name}</a></div>`
                 })})
         .then(()=>{searchResultElement.innerHTML=srcResultlist})
-    },2000);
+    },500);
     console.log(event.target.value,"event");
 
 }
 searchElement.addEventListener("keyup",suggestion);
+searchElement.addEventListener("blur",()=>{setTimeout(()=>searchResultElement.innerHTML="",500)})
 
+function searchHandler(){
+    let searchedValue = searchElement.value;
+    console.log(searchedValue);
 
+    url=`http://gateway.marvel.com/v1/public/characters?limit=12&nameStartsWith	=${searchedValue}&ts=3&apikey=${apikey}&hash=${"dbd3fb9a458864dde50984bed11d004e"}`
+    searchElement.value="";
+    searchResultElement.innerHTML="";
+    get();
+}
 
 function characterPage(){
     
