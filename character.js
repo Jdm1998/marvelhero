@@ -27,23 +27,23 @@ descElement.innerText = data.data.results[0].description;
 
 result.comics.items.length==0?comicsElement.innerHTML="no comics found":
 result.comics.items.forEach((item)=>{
-    comicsElement.innerHTML+=`<li><a href= ${item.resourceURI}> ${item.name} </a></li>`;
+    comicsElement.innerHTML+=`<li> ${item.name} </li>`;
 })
 
-result.events.items.length==0?eventsElement.innerHTML="<h2 class = 'nofound'>no events found!</h2>":
+result.events.items.length==0?eventsElement.innerHTML="<h3 class = 'nofound'>no events found!</h3>":
 result.events.items.forEach((item)=>{
-    eventsElement.innerHTML+= `<li> <a href= ${item.resourceURI}>${item.name}</a> </li>`
+    eventsElement.innerHTML+= `<li> ${item.name}</li>`
 })
 
 
-result.series.items.length==0?seriesElement.innerHTML="<h2 class = 'nofound'>no events found!</h2>":
+result.series.items.length==0?seriesElement.innerHTML="<h3 class = 'nofound'>no events found!</h3>":
 result.series.items.forEach((item)=>{
-    seriesElement.innerHTML+= `<li> <a href= ${item.resourceURI}>${item.name} </a></li>`
+    seriesElement.innerHTML+= `<li> ${item.name}</li>`
 })
 
-result.stories.items.length==0?storiesElement.innerHTML="<h2 class = 'nofound'>no events found!</h2>":
+result.stories.items.length==0?storiesElement.innerHTML="<h3 class = 'nofound'>no events found!</h3>":
 result.stories.items.forEach((item)=>{
-    storiesElement.innerHTML+= `<li><a href= ${item.resourceURI}> ${item.name}</a> </li>`
+    storiesElement.innerHTML+= `<li> ${item.name} </li>`
 })
 console.log(data);
 })
