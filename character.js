@@ -25,7 +25,7 @@ descElement.innerText = "no description found!";
 else
 descElement.innerText = data.data.results[0].description;
 
-result.comics.items.length==0?comicsElement.innerHTML="no comics found":
+result.comics.items.length==0?comicsElement.innerHTML="<h3 class = 'nofound'>no comics found!</h3>":
 result.comics.items.forEach((item)=>{
     comicsElement.innerHTML+=`<li> ${item.name} </li>`;
 })

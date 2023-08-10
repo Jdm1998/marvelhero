@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding:10px;
+    background: linear-gradient(rgb(192, 195, 230),rgb(30, 182, 212));
+}
+#container{
+    width: 60vw;
+    
+    max-width: 700px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    border: 2px solid rgb(2, 17, 147) ;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#image{
+    width: 60vw;
+    height: 40vh;
+    max-width: 700px;
+    border-bottom: 2px solid rgb(24, 2, 2);
+    border-radius: 10px;
+
+}
+#image img{
+    width: 60vw;
+    object-fit:cover;
+}
+#name{
+    font-size: 2.5em;
+    color :rgb(22, 4, 82);
+}
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color:blue;
+    font-size: 2em;
+}
+.comics h2,.series h2,.stories h2 ,.events h2{
+    color :rgb(33, 22, 94);
+    font-size: 2em;
+    text-decoration: underline  rgb(6, 8, 69) 2px;
+}
+p{
+    color: rgb(10, 38, 109);
+    margin:0 5px;
+}
+
+li{
+    list-style-type: none;
+    border: 1px solid green;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: rgb(18, 18, 71);
+    background-color: aquamarine;
+}
+.nofound{
+    color: brown;
+    font-size: 1.5rem;
+    text-align: center;
+}
+

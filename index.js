@@ -16,7 +16,7 @@ var contentElement = document.getElementById('content');
 var url = `https://gateway.marvel.com/v1/public/characters?limit=12&ts=3&apikey=${apikey}&hash=${"dbd3fb9a458864dde50984bed11d004e"}`
 // var url = "https://gateway.marvel.com:443/v1/public/characters?limit=1&apikey=3fac9c4542f5862f3d03f2f2eeaa889d"
 
-
+//for adding hero to favorite
 function addToFavorite(id){
     // event.preventDefault();
     console.log("in add to fav");
@@ -32,6 +32,7 @@ function addToFavorite(id){
     get();
 }
 
+// for checking favorite
 function checkForfav(id){
     let heroes = localStorage.getItem("fav");
     let favheroes = JSON.parse(heroes);
@@ -41,6 +42,8 @@ function checkForfav(id){
     return true;
     return false;
 }
+
+//for removing favorite
 function removeToFav(id){
 
     console.log("in remove from fav");
@@ -50,7 +53,7 @@ function removeToFav(id){
     localStorage.setItem('fav',JSON.stringify(favheroes));
     get()
 }
-
+// for calling  remove/add favorite
 function handler(event){
     console.log(event);
     if(event.target.firstChild.data =="add to favorite")
@@ -59,7 +62,7 @@ function handler(event){
     removeToFav(event.target.attributes[0].nodeValue);
 }
 
-
+// on load function
 var get =async function  (){
     fetch(url)
     .then(function(res){
@@ -91,11 +94,13 @@ var get =async function  (){
 
 get();
 
+// implementing search
+
 let searchElement = document.getElementById("name");
 let searchResultElement = document.getElementById("searchresult");
 var timer ;
 var srcResultlist= "";
-
+// suggesstion function for search
 var suggestion = function(event){
     clearInterval(timer);
      timer = setTimeout(()=>{
@@ -123,13 +128,10 @@ function searchHandler(){
     let searchedValue = searchElement.value;
     console.log(searchedValue);
 
-    url=`https://gateway.marvel.com/v1/public/characters?limit=12&nameStartsWith	=${searchedValue}&ts=3&apikey=${apikey}&hash=${"dbd3fb9a458864dde50984bed11d004e"}`
+    url=`https://gateway.marvel.com/v1/public/characters?limit=12&nameStartsWith=${searchedValue}&ts=3&apikey=${apikey}&hash=${"dbd3fb9a458864dde50984bed11d004e"}`
     searchElement.value="";
     searchResultElement.innerHTML="";
     get();
 }
 
-function characterPage(){
-    
-}
 
